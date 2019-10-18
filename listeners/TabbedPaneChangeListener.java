@@ -1,9 +1,9 @@
 package com.javarush.task.task32.task3209.listeners;
 
-import com.javarush.task.task32.task3209.View;
 
-import javax.swing.event.ChangeEvent;
+import com.javarush.task.task32.task3209.View;
 import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
 
 public class TabbedPaneChangeListener implements ChangeListener {
     private View view;

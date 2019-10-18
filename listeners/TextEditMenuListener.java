@@ -1,14 +1,12 @@
 package com.javarush.task.task32.task3209.listeners;
 
-
 import com.javarush.task.task32.task3209.View;
-
-import javax.swing.*;
-import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
+import javax.swing.event.MenuEvent;
+import javax.swing.*;
 import java.awt.*;
 
-// TextEditMenuListener. Этот класс также должен реализовывать интерфейс MenuListener.
+    // TextEditMenuListener. Этот класс также должен реализовывать интерфейс MenuListener.
     // Добавь ему конструктор TextEditMenuListener(View view).
     // В следующих заданиях мы рассмотрим его детальнее.
 public class TextEditMenuListener implements MenuListener {
@@ -26,12 +24,8 @@ public class TextEditMenuListener implements MenuListener {
     }
 
     @Override
-    public void menuDeselected(MenuEvent menuEvent) {
-
-    }
+    public void menuDeselected(MenuEvent menuEvent) { }
 
     @Override
-    public void menuCanceled(MenuEvent menuEvent) {
-
-    }
+    public void menuCanceled(MenuEvent menuEvent) { }
 }

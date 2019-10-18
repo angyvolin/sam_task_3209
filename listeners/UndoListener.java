@@ -1,11 +1,11 @@
 package com.javarush.task.task32.task3209.listeners;
 
-import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
+import javax.swing.event.UndoableEditEvent;
 import javax.swing.undo.UndoManager;
 
 
-// Этот класс будет следить за правками, которые можно отменить или вернуть.
+        // Этот класс будет следить за правками, которые можно отменить или вернуть.
 public class UndoListener implements UndoableEditListener {
     private UndoManager undoManager;
 
