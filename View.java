@@ -33,9 +33,7 @@ public class View extends JFrame implements ActionListener {
     public View () {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (Exception e) {
-            ExceptionHandler.log(e);
-        }
+        } catch (Exception e) { ExceptionHandler.log(e); }
     }
                 // Они будут отвечать за инициализацию меню и панелей редактора.
 //      1. В методе initMenuBar() должно создаваться новое меню (объект типа JMenuBar).
@@ -52,8 +50,6 @@ public class View extends JFrame implements ActionListener {
         initColorMenu(this, jMenuBar);
         initFontMenu(this, jMenuBar);
         initHelpMenu(this, jMenuBar);
-            //getContentPane().add(jMenuBar, BorderLayout.BEFORE_FIRST_LINE);
-            // тоже самое чего не приняло не знаю.
         getContentPane().add(jMenuBar, BorderLayout.NORTH);
     }
 
@@ -82,10 +78,8 @@ public class View extends JFrame implements ActionListener {
         tabbedPane.setPreferredSize(new Dimension(500, 500));
         tabbedPane.addChangeListener(new TabbedPaneChangeListener(this));
         getContentPane().add(tabbedPane, BorderLayout.CENTER);
-        
     }
                 //-------------------------------------------------------------
-
                 // Он будет инициализировать графический интерфейс.
     public void initGui() {
         this.initMenuBar();
@@ -93,7 +87,6 @@ public class View extends JFrame implements ActionListener {
         this.pack();
     }
                 //-------------------------------------------------------------
-
     public void init() {
         this.initGui();
             // Добавлять слушателя событий нашего окна. В качестве подписчика создай
@@ -105,7 +98,6 @@ public class View extends JFrame implements ActionListener {
             // Показывать наше окно. Используй метод setVisible с правильным параметром.
         setVisible(true);
     }
-
         // отменяет последнее действие. Реализуй его используя undoManager.
     public void undo() {
         try {
@@ -114,7 +106,6 @@ public class View extends JFrame implements ActionListener {
             ExceptionHandler.log(e);
         }
     }
-
         // возвращает ранее отмененное действие. Реализуй его по аналогии с предыдущим пунктом.
     public void redo() {
         try {
@@ -123,7 +114,6 @@ public class View extends JFrame implements ActionListener {
             ExceptionHandler.log(e);
         }
     }
-
         // должен сбрасывать все правки в менеджере undoManager.
     public void resetUndo() { undoManager.discardAllEdits(); }
 
@@ -147,5 +137,21 @@ public class View extends JFrame implements ActionListener {
     public UndoListener getUndoListener() { return undoListener; }
 
     public void setController(Controller controller) { this.controller = controller; }
+        // он должен выбирать html вкладку (переключаться на нее).
+        // сбрасывать все правки с помощью метода, который ты реализовал ранее.
+    public void selectHtmlTab() {
+        tabbedPane.setSelectedIndex(0);
+        this.resetUndo();
+    }
+        // должен получать документ у контроллера и устанавливать его в панель
+        // редактирования htmlTextPane.
+    public void update() { htmlTextPane.setDocument(controller.getDocument()); }
+        // должен показывать диалоговое окно с информацией о программе.
+        // информацию придумай сам, а вот тип сообщения должен быть JOptionPane.
+        // INFORMATION_MESSAGE
+    public void showAbout() {
+        JOptionPane.showMessageDialog(tabbedPane.getSelectedComponent(),
+                "Версия 1.0", "О программме", JOptionPane.INFORMATION_MESSAGE);
+    }
 
 }
