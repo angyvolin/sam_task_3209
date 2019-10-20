@@ -14,6 +14,8 @@ import java.awt.*;
 
 import static com.javarush.task.task32.task3209.MenuHelper.*;
 
+
+//
 public class View extends JFrame implements ActionListener {
     private Controller controller;
 
