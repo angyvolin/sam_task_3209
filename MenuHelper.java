@@ -1,15 +1,12 @@
-package com.javarush.task.task32.task3209;
-
-import com.javarush.task.task32.task3209.actions.*;
-import com.javarush.task.task32.task3209.listeners.TextEditMenuListener;
-import com.javarush.task.task32.task3209.listeners.UndoMenuListener;
-
-import javax.swing.*;
+import javax.swing.text.StyledEditorKit;
 import javax.swing.text.DefaultEditorKit;
 import javax.swing.text.StyleConstants;
-import javax.swing.text.StyledEditorKit;
-import java.awt.*;
 import java.awt.event.ActionListener;
+import javax.swing.*;
+import java.awt.*;
+
+
+
 
 public class MenuHelper {
     public static JMenuItem addMenuItem(JMenu parent, String text, ActionListener actionListener) {
@@ -46,6 +43,7 @@ public class MenuHelper {
         fontMenu.add(fontTypeMenu);
 
         String[] fontTypes = {Font.SANS_SERIF, Font.SERIF, Font.MONOSPACED, Font.DIALOG, Font.DIALOG_INPUT};
+        
         for (String fontType : fontTypes) {
             addMenuItem(fontTypeMenu, fontType, new StyledEditorKit.FontFamilyAction(fontType, fontType));
         }
@@ -54,6 +52,7 @@ public class MenuHelper {
         fontMenu.add(fontSizeMenu);
 
         String[] fontSizes = {"6", "8", "10", "12", "14", "16", "20", "24", "32", "36", "48", "72"};
+        
         for (String fontSize : fontSizes) {
             addMenuItem(fontSizeMenu, fontSize, new StyledEditorKit.FontSizeAction(fontSize, Integer.parseInt(fontSize)));
         }

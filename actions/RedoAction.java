@@ -1,9 +1,6 @@
-package com.javarush.task.task32.task3209.actions;
-
-import com.javarush.task.task32.task3209.View;
-
-import javax.swing.*;
 import java.awt.event.ActionEvent;
+import javax.swing.*;
+
 
 
 // Класс возврата действия.
