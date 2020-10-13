@@ -1,36 +1,30 @@
-package com.javarush.task.task32.task3209;
-
-import javax.swing.*;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.HTMLEditorKit;
+import javax.swing.*;
 import java.io.*;
 
 import static htmlEditor.ExceptionHandler.log;
 
 
+
 public class Controller {
-    private View view;
     private HTMLDocument document;
     private File currentFile;
-
-    public static void main(String[] args) {
-        View view = new View();
-        Controller controller = new Controller(view);
-        view.setController(controller);
-        view.init();
-        controller.init();
+    private View view;
+    
+    
+    
+    public Controller(View view) {
+        this.view = view;
     }
+    
+    public HTMLDocument getDocument() { return document; }
 
     public void init() { createNewDocument(); }
 
     public void exit() { System.exit(0); }
 
-    public Controller(View view) {
-        this.view = view;
-    }
-
-    public HTMLDocument getDocument() { return document; }
         // будет сбрасывать текущий документ. Он должен:
         // Удалять у текущего документа document слушателя правок которые можно
         // отменить/вернуть (найди подходящий для этого метод, унаследованный от AbstractDocument).
@@ -45,6 +39,7 @@ public class Controller {
         document.addUndoableEditListener(view.getUndoListener());
         view.update();
     }
+    
         // Он будет записывать переданный текст с html тегами в документ document.
         // При его реализации: Сбрось документ.
         // Создай новый реадер StringReader на базе переданного текста.
@@ -60,6 +55,7 @@ public class Controller {
         } catch (BadLocationException e) { log(e); }
         catch (IOException e) { log(e); }
     }
+    
         // Он должен получать текст из документа со всеми html тегами.
         // Создай объект StringWriter.
         // Перепиши все содержимое из документа document в созданный объект
@@ -73,10 +69,7 @@ public class Controller {
         } catch (Exception e) { log(e); }
         return stringWriter.toString();
     }
-
-    public void openDocument() { }
-
-    public void saveDocument() { }
+    
         // Переключать представление на html вкладку.
         // Создавать новый объект для выбора файла JFileChooser.
         // Устанавливать ему в качестве фильтра объект HTMLFileFilter.
@@ -110,6 +103,7 @@ public class Controller {
             }
         }
     }
+    
         // Он должен: Выбирать html вкладку у представления.
         // Сбрасывать текущий документ.
         // Устанавливать новый заголовок окна, например: "HTML редактор".
@@ -127,4 +121,8 @@ public class Controller {
         currentFile = null;
     }
     
-    add main class from start programms
+    
+     public void openDocument() { }
+
+    public void saveDocument() { }
+    
