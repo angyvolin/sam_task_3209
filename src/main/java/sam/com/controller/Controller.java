@@ -1,3 +1,5 @@
+package src.main.java.sam.com.controller;
+
 import javax.swing.text.BadLocationException;
 import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.HTMLEditorKit;
@@ -72,7 +74,7 @@ public class Controller {
     
         // Переключать представление на html вкладку.
         // Создавать новый объект для выбора файла JFileChooser.
-        // Устанавливать ему в качестве фильтра объект HTMLFileFilter.
+        // Устанавливать ему в качестве фильтра объект src.main.java.sam.com.model.HTMLFileFilter.
         // Показывать диалоговое окно "Save File" для выбора файла.
         // Если пользователь подтвердит выбор файла:
         // Сохранять выбранный файл в поле currentFile.

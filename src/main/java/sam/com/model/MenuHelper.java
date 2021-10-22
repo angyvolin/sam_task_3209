@@ -1,3 +1,7 @@
+package src.main.java.sam.com.model;
+
+import src.main.java.sam.com.view.View;
+
 import javax.swing.text.StyledEditorKit;
 import javax.swing.text.DefaultEditorKit;
 import javax.swing.text.StyleConstants;
@@ -57,7 +61,7 @@ public class MenuHelper {
             addMenuItem(fontSizeMenu, fontSize, new StyledEditorKit.FontSizeAction(fontSize, Integer.parseInt(fontSize)));
         }
 
-        fontMenu.addMenuListener(new TextEditMenuListener(view));
+        fontMenu.addMenuListener(new com.javarush.task.task32.task3209.listeners.TextEditMenuListener(view));
     }
 
     public static void initColorMenu(View view, JMenuBar menuBar) {
@@ -73,7 +77,7 @@ public class MenuHelper {
         addMenuItem(colorMenu, new StyledEditorKit.ForegroundAction("Пурпурный", Color.magenta));
         addMenuItem(colorMenu, new StyledEditorKit.ForegroundAction("Черный", Color.black));
 
-        colorMenu.addMenuListener(new TextEditMenuListener(view));
+        colorMenu.addMenuListener(new com.javarush.task.task32.task3209.listeners.TextEditMenuListener(view));
     }
 
     public static void initAlignMenu(View view, JMenuBar menuBar) {
@@ -84,7 +88,7 @@ public class MenuHelper {
         addMenuItem(alignMenu, new StyledEditorKit.AlignmentAction("По центру", StyleConstants.ALIGN_CENTER));
         addMenuItem(alignMenu, new StyledEditorKit.AlignmentAction("По правому краю", StyleConstants.ALIGN_RIGHT));
 
-        alignMenu.addMenuListener(new TextEditMenuListener(view));
+        alignMenu.addMenuListener(new com.javarush.task.task32.task3209.listeners.TextEditMenuListener(view));
     }
 
     public static void initStyleMenu(View view, JMenuBar menuBar) {
@@ -97,24 +101,24 @@ public class MenuHelper {
 
         styleMenu.addSeparator();
 
-        addMenuItem(styleMenu, "Подстрочный знак", new SubscriptAction());
-        addMenuItem(styleMenu, "Надстрочный знак", new SuperscriptAction());
-        addMenuItem(styleMenu, "Зачеркнутый", new StrikeThroughAction());
+        addMenuItem(styleMenu, "Подстрочный знак", new com.javarush.task.task32.task3209.actions.SubscriptAction());
+        addMenuItem(styleMenu, "Надстрочный знак", new com.javarush.task.task32.task3209.actions.SuperscriptAction());
+        addMenuItem(styleMenu, "Зачеркнутый", new com.javarush.task.task32.task3209.actions.StrikeThroughAction());
 
-        styleMenu.addMenuListener(new TextEditMenuListener(view));
+        styleMenu.addMenuListener(new com.javarush.task.task32.task3209.listeners.TextEditMenuListener(view));
     }
 
     public static void initEditMenu(View view, JMenuBar menuBar) {
         JMenu editMenu = new JMenu("Редактировать");
         menuBar.add(editMenu);
 
-        JMenuItem undoItem = addMenuItem(editMenu, "Отменить", new UndoAction(view));
+        JMenuItem undoItem = addMenuItem(editMenu, "Отменить", new com.javarush.task.task32.task3209.actions.UndoAction(view));
         JMenuItem redoItem = addMenuItem(editMenu, "Вернуть", new RedoAction(view));
         addMenuItem(editMenu, "Вырезать", new DefaultEditorKit.CutAction());
         addMenuItem(editMenu, "Копировать", new DefaultEditorKit.CopyAction());
         addMenuItem(editMenu, "Вставить", new DefaultEditorKit.PasteAction());
 
-        editMenu.addMenuListener(new UndoMenuListener(view, undoItem, redoItem));
+        editMenu.addMenuListener(new com.javarush.task.task32.task3209.listeners.UndoMenuListener(view, undoItem, redoItem));
     }
 
     public static void initFileMenu(View view, JMenuBar menuBar) {

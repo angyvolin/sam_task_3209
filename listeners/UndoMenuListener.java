@@ -1,7 +1,7 @@
 package com.javarush.task.task32.task3209.listeners;
 
 
-import com.javarush.task.task32.task3209.View;
+import src.main.java.sam.com.view.View;
 
 import javax.swing.*;
 import javax.swing.event.MenuEvent;

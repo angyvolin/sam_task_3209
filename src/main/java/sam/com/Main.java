@@ -1,3 +1,7 @@
+package src.main.java.sam.com;
+
+import src.main.java.sam.com.view.View;
+
 public class Main {
 
 
