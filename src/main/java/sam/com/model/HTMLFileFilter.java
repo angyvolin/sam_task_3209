@@ -1,8 +1,10 @@
+package src.main.java.sam.com.model;
+
 import javax.swing.filechooser.FileFilter;
 import java.io.File;
 
         // Сейчас мы напишем свой фильтр:
-        //Создал публичный класс HTMLFileFilter унаследованный от FileFilter.
+        //Создал публичный класс src.main.java.sam.com.model.HTMLFileFilter унаследованный от FileFilter.
         //Мы хотим, чтобы окно выбора файла отображало только html/htm файлы или папки.
 public class HTMLFileFilter extends FileFilter {
 

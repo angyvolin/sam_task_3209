@@ -1,4 +1,4 @@
-
+package src.main.java.sam.com.model;
 
 
 public class ExceptionHandler {

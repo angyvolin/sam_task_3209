@@ -1,4 +1,4 @@
-package com.javarush.task.task32.task3209;
+package src.main.java.sam.com.view;
 
 import com.javarush.task.task32.task3209.listeners.FrameListener;
 import com.javarush.task.task32.task3209.listeners.TabbedPaneChangeListener;
@@ -39,7 +39,7 @@ public class View extends JFrame implements ActionListener {
     }
                 // Они будут отвечать за инициализацию меню и панелей редактора.
 //      1. В методе initMenuBar() должно создаваться новое меню (объект типа JMenuBar).
-//      2. В методе initMenuBar() c помощью MenuHelper должно быть проинициализировано
+//      2. В методе initMenuBar() c помощью src.main.java.sam.com.model.MenuHelper должно быть проинициализировано
 //          меню в следующем порядке: Файл, Редактировать, Стиль, Выравнивание, Цвет, Шрифт и Помощь.
 //      3. В методе initMenuBar() должно добавляться новосозданное меню в верхнюю часть панели контента
 //          текущего фрейма, используя метод getContentPane().
