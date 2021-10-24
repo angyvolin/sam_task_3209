@@ -1,15 +1,20 @@
-package com.javarush.task.task32.task3209.actions;
+package src.main.java.sam.com.model.actions;
 
-
-import javax.swing.*;
 import javax.swing.text.MutableAttributeSet;
 import javax.swing.text.SimpleAttributeSet;
-import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledEditorKit;
+import javax.swing.text.StyleConstants;
 import java.awt.event.ActionEvent;
+import lombok.NoArgsConstructor;
+import lombok.Builder;
+import javax.swing.*;
 
-//  Класс SuperscriptAction. Он будет отвечать за стиль "Надстрочный знак".
+
+@Builder
+@NoArgsConstructor
 public class SuperscriptAction extends StyledEditorKit.StyledTextAction {
+    // Класс SuperscriptAction. Он будет отвечать за стиль "Надстрочный знак".
+    // SuperscriptAction class. He will be responsible for the "Superscript" style.
 
     //public SuperscriptAction() { super("Надстрочный знак"); }
     public SuperscriptAction() { super(StyleConstants.Superscript.toString()); }

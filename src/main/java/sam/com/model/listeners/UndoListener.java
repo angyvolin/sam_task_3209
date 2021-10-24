@@ -1,7 +1,7 @@
 package src.main.java.sam.com.model.listeners;
 
-import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
+import javax.swing.event.UndoableEditEvent;
 import javax.swing.undo.UndoManager;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;

@@ -3,12 +3,12 @@ package src.main.java.sam.com.model.listeners;
 
 import src.main.java.sam.com.view.View;
 
-import javax.swing.*;
-import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
+import javax.swing.event.MenuEvent;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Builder;
+import javax.swing.*;
 
 
 
