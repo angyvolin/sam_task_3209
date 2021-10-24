@@ -1,4 +1,4 @@
-package com.javarush.task.task32.task3209.listeners;
+package src.main.java.sam.com.model.listeners;
 
 
 import src.main.java.sam.com.view.View;

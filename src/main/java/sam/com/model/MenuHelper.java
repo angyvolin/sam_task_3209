@@ -6,13 +6,19 @@ import javax.swing.text.StyledEditorKit;
 import javax.swing.text.DefaultEditorKit;
 import javax.swing.text.StyleConstants;
 import java.awt.event.ActionListener;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.Builder;
 import javax.swing.*;
 import java.awt.*;
 
 
 
-
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class MenuHelper {
+
     public static JMenuItem addMenuItem(JMenu parent, String text, ActionListener actionListener) {
         JMenuItem menuItem = new JMenuItem(text);
         menuItem.addActionListener(actionListener);
@@ -20,11 +26,15 @@ public class MenuHelper {
         return menuItem;
     }
 
+
+
     public static JMenuItem addMenuItem(JMenu parent, String text, Action action) {
         JMenuItem menuItem = addMenuItem(parent, action);
         menuItem.setText(text);
         return menuItem;
     }
+
+
 
     public static JMenuItem addMenuItem(JMenu parent, Action action) {
         JMenuItem menuItem = new JMenuItem(action);
@@ -32,12 +42,16 @@ public class MenuHelper {
         return menuItem;
     }
 
+
+
     public static void initHelpMenu(View view, JMenuBar menuBar) {
         JMenu helpMenu = new JMenu("Помощь");
         menuBar.add(helpMenu);
 
         addMenuItem(helpMenu, "О программе", view);
     }
+
+
 
     public static void initFontMenu(View view, JMenuBar menuBar) {
         JMenu fontMenu = new JMenu("Шрифт");
@@ -47,22 +61,20 @@ public class MenuHelper {
         fontMenu.add(fontTypeMenu);
 
         String[] fontTypes = {Font.SANS_SERIF, Font.SERIF, Font.MONOSPACED, Font.DIALOG, Font.DIALOG_INPUT};
-        
-        for (String fontType : fontTypes) {
-            addMenuItem(fontTypeMenu, fontType, new StyledEditorKit.FontFamilyAction(fontType, fontType));
-        }
+
+        fontTypes.forEach(fontType -> addMenuItem(fontTypeMenu, fontType, new StyledEditorKit.FontFamilyAction(fontType, fontType)));
 
         JMenu fontSizeMenu = new JMenu("Размер шрифта");
         fontMenu.add(fontSizeMenu);
 
         String[] fontSizes = {"6", "8", "10", "12", "14", "16", "20", "24", "32", "36", "48", "72"};
-        
-        for (String fontSize : fontSizes) {
-            addMenuItem(fontSizeMenu, fontSize, new StyledEditorKit.FontSizeAction(fontSize, Integer.parseInt(fontSize)));
-        }
+
+        fontSizes.forEach(fontSize -> addMenuItem(fontSizeMenu, fontSize, new StyledEditorKit.FontSizeAction(fontSize, Integer.parseInt(fontSize))));
 
         fontMenu.addMenuListener(new com.javarush.task.task32.task3209.listeners.TextEditMenuListener(view));
     }
+
+
 
     public static void initColorMenu(View view, JMenuBar menuBar) {
         JMenu colorMenu = new JMenu("Цвет");
@@ -80,6 +92,8 @@ public class MenuHelper {
         colorMenu.addMenuListener(new com.javarush.task.task32.task3209.listeners.TextEditMenuListener(view));
     }
 
+
+
     public static void initAlignMenu(View view, JMenuBar menuBar) {
         JMenu alignMenu = new JMenu("Выравнивание");
         menuBar.add(alignMenu);
@@ -90,6 +104,8 @@ public class MenuHelper {
 
         alignMenu.addMenuListener(new com.javarush.task.task32.task3209.listeners.TextEditMenuListener(view));
     }
+
+
 
     public static void initStyleMenu(View view, JMenuBar menuBar) {
         JMenu styleMenu = new JMenu("Стиль");
@@ -108,6 +124,8 @@ public class MenuHelper {
         styleMenu.addMenuListener(new com.javarush.task.task32.task3209.listeners.TextEditMenuListener(view));
     }
 
+
+
     public static void initEditMenu(View view, JMenuBar menuBar) {
         JMenu editMenu = new JMenu("Редактировать");
         menuBar.add(editMenu);
@@ -120,6 +138,8 @@ public class MenuHelper {
 
         editMenu.addMenuListener(new com.javarush.task.task32.task3209.listeners.UndoMenuListener(view, undoItem, redoItem));
     }
+
+
 
     public static void initFileMenu(View view, JMenuBar menuBar) {
         JMenu fileMenu = new JMenu("Файл");

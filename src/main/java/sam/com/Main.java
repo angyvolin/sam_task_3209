@@ -7,9 +7,10 @@ public class Main {
 
 
   public static void main(String[] args) {
+
           View view = View.builder().build();
           Controller controll = Controller.builder().view(view).build();
-          view.controller(controll);
+          view.setController(controll);
           view.init();
           controll.init();
       }
