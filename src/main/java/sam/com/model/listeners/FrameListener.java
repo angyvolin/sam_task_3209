@@ -7,10 +7,8 @@ import java.awt.event.WindowEvent;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Builder;
-import lombok.Setter;
 
 
-@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

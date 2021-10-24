@@ -1,6 +1,6 @@
 taskKey="com.javarush.task.task32.task3209.big13"\n\nHTML Editor (13)
 
-Реализуем класс TextEditMenuListener в пакет src.main.java.sam.com.model.listeners. Этот класс будет работать аналогично
+Реализуем класс TextEditMenuListener в пакет listeners. Этот класс будет работать аналогично
 классу UndoMenuListener только для других пунктов меню. Пункты меню, отвечающие за
 стиль, шрифт, цвет и т.д. должны быть доступны только тогда, когда в нашем редакторе
 выбрана первая вкладка.
@@ -48,7 +48,7 @@ HTML Editor (11)
 11.1.	Добавь в представление поле UndoManager undoManager. Разберись для чего
 используется этот класс. Проинициализируй поле класса новым объектом.
 11.2.	Добавь класс UndoListener реализующий интерфейс UndoableEditListener в пакет
-src.main.java.sam.com.model.listeners. Этот класс будет следить за правками, которые можно отменить или вернуть.
+listeners. Этот класс будет следить за правками, которые можно отменить или вернуть.
 11.3.	Добавь в класс UndoListener:
 11.3.1.	Поле UndoManager undoManager.
 11.3.2.	Конструктор, который принимает UndoManager и инициализирует поле класса.
@@ -133,7 +133,7 @@ UndoAction.
 унаследуй его от StyledEditorKit.StyledTextAction.
 8.1.5.	Класс SuperscriptAction. Он будет отвечать за стиль "Надстрочный знак". Добавь ему
 правильный родительский класс.
-8.2.	Напиши в пакете src.main.java.sam.com.model.listeners заглушки для классов:
+8.2.	Напиши в пакете listeners заглушки для классов:
 8.2.1.	UndoMenuListener, он должен реализовывать интерфейс MenuListener и иметь
 конструктор UndoMenuListener(View view, JMenuItem undoMenuItem, JMenuItem
 redoMenuItem). Чем он будет заниматься узнаешь чуть позже.
