@@ -1,14 +1,21 @@
-package com.javarush.task.task32.task3209.listeners;
+package src.main.java.sam.com.model.listeners;
 
 import src.main.java.sam.com.view.View;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.Builder;
+import lombok.Setter;
 
+
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class FrameListener extends WindowAdapter {
     private View view;
-
-    public FrameListener(View view) { this.view = view; }
 
     @Override
     public void windowClosing(WindowEvent windowEvent) {

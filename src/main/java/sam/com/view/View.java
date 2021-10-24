@@ -1,8 +1,7 @@
 package src.main.java.sam.com.view;
 
-import com.javarush.task.task32.task3209.listeners.FrameListener;
-import com.javarush.task.task32.task3209.listeners.TabbedPaneChangeListener;
-import com.javarush.task.task32.task3209.listeners.UndoListener;
+import src.main.java.sam.com.controller.Controller;
+import src.main.java.sam.com.model.ExceptionHandler;
 
 import javax.swing.*;
 import javax.swing.undo.CannotRedoException;
@@ -12,7 +11,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static com.javarush.task.task32.task3209.MenuHelper.*;
 
 public class View extends JFrame implements ActionListener {
     private Controller controller;
@@ -80,7 +78,7 @@ public class View extends JFrame implements ActionListener {
         JScrollPane jScrollPaneNew = new JScrollPane(plainTextPane);
         tabbedPane.addTab("Текст", jScrollPaneNew);
         tabbedPane.setPreferredSize(new Dimension(500, 500));
-        tabbedPane.addChangeListener(new TabbedPaneChangeListener(this));
+        tabbedPane.addChangeListener(new com.javarush.task.task32.task3209.listeners.TabbedPaneChangeListener(this));
         getContentPane().add(tabbedPane, BorderLayout.CENTER);
         
     }
@@ -100,7 +98,7 @@ public class View extends JFrame implements ActionListener {
             // и используй объект класса FrameListener.
             //В качестве метода для добавления подписчика используй подходящий метод из класса Window
             // от которого наследуется и наш класс через классы JFrame и Frame.
-        addWindowListener(new FrameListener(this));
+        addWindowListener(new com.javarush.task.task32.task3209.listeners.FrameListener(this));
         //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             // Показывать наше окно. Используй метод setVisible с правильным параметром.
         setVisible(true);

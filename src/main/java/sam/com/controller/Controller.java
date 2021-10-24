@@ -8,10 +8,14 @@ import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.HTMLEditorKit;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 import javax.swing.*;
 import java.io.*;
 
 import static src.main.java.sam.com.model.ExceptionHandler.log;
+
 
 
 @Getter
@@ -24,15 +28,6 @@ public class Controller {
     private File currentFile;
     private View view;
 
-
-//    public Controller(View view) {
-//        this.view = view;
-//    }
-
-//    public HTMLDocument getDocument() {
-//        return document;
-//    }
-
     public void init() {
         createNewDocument();
     }
@@ -40,6 +35,13 @@ public class Controller {
     public void exit() {
         System.exit(0);
     }
+
+    public void openDocument() {
+    }
+
+    public void saveDocument() {
+    }
+
 
     // будет сбрасывать текущий документ. Он должен:
     // Удалять у текущего документа document слушателя правок которые можно
@@ -142,13 +144,5 @@ public class Controller {
         view.resetUndo();
         currentFile = null;
     }
-
-
-    public void openDocument() {
-    }
-
-    public void saveDocument() {
-    }
-
 }
     
