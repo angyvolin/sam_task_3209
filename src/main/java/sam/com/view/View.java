@@ -2,6 +2,8 @@ package src.main.java.sam.com.view;
 
 import src.main.java.sam.com.controller.Controller;
 import src.main.java.sam.com.model.ExceptionHandler;
+import src.main.java.sam.com.model.listeners.FrameListener;
+import src.main.java.sam.com.model.listeners.TabbedPaneChangeListener;
 import src.main.java.sam.com.model.listeners.UndoListener;
 
 import javax.swing.undo.CannotRedoException;
@@ -11,6 +13,7 @@ import javax.swing.undo.UndoManager;
 import java.awt.event.ActionEvent;
 import javax.swing.*;
 import java.awt.*;
+
 
 
 public class View extends JFrame implements ActionListener {
@@ -27,8 +30,8 @@ public class View extends JFrame implements ActionListener {
     private UndoManager undoManager = new UndoManager();
     private UndoListener undoListener = new UndoListener(undoManager);
 
-//      4. В конструкторе класса View, через класс UIManager, должен устанавливаться внешний вид
-//          и поведение (look and feel).
+            // 4. В конструкторе класса View, через класс UIManager, должен устанавливаться внешний вид
+            //    и поведение (look and feel).
     public View () {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -36,12 +39,12 @@ public class View extends JFrame implements ActionListener {
             ExceptionHandler.log(e);
         }
     }
-                // Они будут отвечать за инициализацию меню и панелей редактора.
-//      1. В методе initMenuBar() должно создаваться новое меню (объект типа JMenuBar).
-//      2. В методе initMenuBar() c помощью src.main.java.sam.com.model.MenuHelper должно быть проинициализировано
-//          меню в следующем порядке: Файл, Редактировать, Стиль, Выравнивание, Цвет, Шрифт и Помощь.
-//      3. В методе initMenuBar() должно добавляться новосозданное меню в верхнюю часть панели контента
-//          текущего фрейма, используя метод getContentPane().
+            // Они будут отвечать за инициализацию меню и панелей редактора.
+            // 1. В методе initMenuBar() должно создаваться новое меню (объект типа JMenuBar).
+            // 2. В методе initMenuBar() c помощью src.main.java.sam.com.model.helper.MenuHelper должно быть проинициализировано
+            //    меню в следующем порядке: Файл, Редактировать, Стиль, Выравнивание, Цвет, Шрифт и Помощь.
+            // 3. В методе initMenuBar() должно добавляться новосозданное меню в верхнюю часть панели контента
+            //    текущего фрейма, используя метод getContentPane().
     public void initMenuBar() {
         JMenuBar jMenuBar = new JMenuBar();
         initFileMenu(this, jMenuBar);
@@ -51,7 +54,7 @@ public class View extends JFrame implements ActionListener {
         initColorMenu(this, jMenuBar);
         initFontMenu(this, jMenuBar);
         initHelpMenu(this, jMenuBar);
-            //getContentPane().add(jMenuBar, BorderLayout.BEFORE_FIRST_LINE);
+            // getContentPane().add(jMenuBar, BorderLayout.BEFORE_FIRST_LINE);
             // тоже самое чего не приняло не знаю.
         getContentPane().add(jMenuBar, BorderLayout.NORTH);
     }
@@ -79,7 +82,7 @@ public class View extends JFrame implements ActionListener {
         JScrollPane jScrollPaneNew = new JScrollPane(plainTextPane);
         tabbedPane.addTab("Текст", jScrollPaneNew);
         tabbedPane.setPreferredSize(new Dimension(500, 500));
-        tabbedPane.addChangeListener(new com.javarush.task.task32.task3209.listeners.TabbedPaneChangeListener(this));
+        tabbedPane.addChangeListener(new TabbedPaneChangeListener(this));
         getContentPane().add(tabbedPane, BorderLayout.CENTER);
         
     }
@@ -97,10 +100,10 @@ public class View extends JFrame implements ActionListener {
         this.initGui();
             // Добавлять слушателя событий нашего окна. В качестве подписчика создай
             // и используй объект класса FrameListener.
-            //В качестве метода для добавления подписчика используй подходящий метод из класса Window
+            // В качестве метода для добавления подписчика используй подходящий метод из класса Window
             // от которого наследуется и наш класс через классы JFrame и Frame.
-        addWindowListener(new com.javarush.task.task32.task3209.listeners.FrameListener(this));
-        //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        addWindowListener(new FrameListener(this));
+            // setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             // Показывать наше окно. Используй метод setVisible с правильным параметром.
         setVisible(true);
     }

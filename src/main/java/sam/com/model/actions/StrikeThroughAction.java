@@ -21,6 +21,7 @@ public class StrikeThroughAction extends StyledEditorKit.StyledTextAction {
 
     public synchronized void actionPerformed(ActionEvent actionEvent) {
         JEditorPane editor = getEditor(actionEvent);
+
         if (editor != null) {
             MutableAttributeSet mutableAttributeSet = getStyledEditorKit(editor).getInputAttributes();
             SimpleAttributeSet simpleAttributeSet = new SimpleAttributeSet();
