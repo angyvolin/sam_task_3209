@@ -1,24 +1,37 @@
 package src.main.java.sam.com.model.listeners;
 
-
 import src.main.java.sam.com.view.View;
 
-import javax.swing.*;
-import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
+import javax.swing.event.MenuEvent;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.Builder;
+import javax.swing.*;
 import java.awt.*;
 
-// TextEditMenuListener. Этот класс также должен реализовывать интерфейс MenuListener.
+
+
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class TextEditMenuListener implements MenuListener {
+    // TextEditMenuListener. Этот класс также должен реализовывать интерфейс MenuListener.
     // Добавь ему конструктор TextEditMenuListener(View view).
     // В следующих заданиях мы рассмотрим его детальнее.
-public class TextEditMenuListener implements MenuListener {
+    // TextEditMenuListener. This class must also implement the MenuListener interface.
+    // Add constructor TextEditMenuListener (View view) to it.
+    // In the next tasks we will look at it in more detail.
     private View view;
 
-    public TextEditMenuListener(View view) { this.view = view; }
 
-    @Override // должен устанавливать доступность пунктов меню стиль,
-              // выравнивание, цвет и шрифт в зависимости от выбранной вкладки.
+
+    @Override
     public void menuSelected(MenuEvent menuEvent) {
+        // должен устанавливать доступность пунктов меню стиль,
+        // выравнивание, цвет и шрифт в зависимости от выбранной вкладки.
+        // should set the accessibility of menu items style,
+        // alignment, color and font depending on the selected tab.
         JMenu jMenu = (JMenu) menuEvent.getSource();
         for (Component c : jMenu.getMenuComponents()){
             c.setEnabled(view.isHtmlTabSelected());

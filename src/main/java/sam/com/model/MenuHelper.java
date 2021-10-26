@@ -1,9 +1,13 @@
 package src.main.java.sam.com.model;
 
+import src.main.java.sam.com.model.listeners.TextEditMenuListener;
+import src.main.java.sam.com.model.listeners.UndoMenuListener;
+import src.main.java.sam.com.model.actions.RedoAction;
+import src.main.java.sam.com.model.actions.UndoAction;
 import src.main.java.sam.com.view.View;
 
-import javax.swing.text.StyledEditorKit;
 import javax.swing.text.DefaultEditorKit;
+import javax.swing.text.StyledEditorKit;
 import javax.swing.text.StyleConstants;
 import java.awt.event.ActionListener;
 import lombok.AllArgsConstructor;
@@ -62,16 +66,20 @@ public class MenuHelper {
 
         String[] fontTypes = {Font.SANS_SERIF, Font.SERIF, Font.MONOSPACED, Font.DIALOG, Font.DIALOG_INPUT};
 
-        fontTypes.forEach(fontType -> addMenuItem(fontTypeMenu, fontType, new StyledEditorKit.FontFamilyAction(fontType, fontType)));
+        fontTypes.forEach(fontType -> addMenuItem(fontTypeMenu,
+                fontType,
+                new StyledEditorKit.FontFamilyAction(fontType, fontType)));
 
         JMenu fontSizeMenu = new JMenu("Размер шрифта");
         fontMenu.add(fontSizeMenu);
 
         String[] fontSizes = {"6", "8", "10", "12", "14", "16", "20", "24", "32", "36", "48", "72"};
 
-        fontSizes.forEach(fontSize -> addMenuItem(fontSizeMenu, fontSize, new StyledEditorKit.FontSizeAction(fontSize, Integer.parseInt(fontSize))));
+        fontSizes.forEach(fontSize -> addMenuItem(fontSizeMenu,
+                fontSize,
+                new StyledEditorKit.FontSizeAction(fontSize, Integer.parseInt(fontSize))));
 
-        fontMenu.addMenuListener(new com.javarush.task.task32.task3209.listeners.TextEditMenuListener(view));
+        fontMenu.addMenuListener(TextEditMenuListener.builder().view(view).build());
     }
 
 
@@ -89,7 +97,7 @@ public class MenuHelper {
         addMenuItem(colorMenu, new StyledEditorKit.ForegroundAction("Пурпурный", Color.magenta));
         addMenuItem(colorMenu, new StyledEditorKit.ForegroundAction("Черный", Color.black));
 
-        colorMenu.addMenuListener(new com.javarush.task.task32.task3209.listeners.TextEditMenuListener(view));
+        colorMenu.addMenuListener(TextEditMenuListener.builder().view(view).build());
     }
 
 
@@ -102,7 +110,7 @@ public class MenuHelper {
         addMenuItem(alignMenu, new StyledEditorKit.AlignmentAction("По центру", StyleConstants.ALIGN_CENTER));
         addMenuItem(alignMenu, new StyledEditorKit.AlignmentAction("По правому краю", StyleConstants.ALIGN_RIGHT));
 
-        alignMenu.addMenuListener(new com.javarush.task.task32.task3209.listeners.TextEditMenuListener(view));
+        alignMenu.addMenuListener(TextEditMenuListener.builder().view(view).build());
     }
 
 
@@ -117,11 +125,11 @@ public class MenuHelper {
 
         styleMenu.addSeparator();
 
-        addMenuItem(styleMenu, "Подстрочный знак", new com.javarush.task.task32.task3209.actions.SubscriptAction());
-        addMenuItem(styleMenu, "Надстрочный знак", new com.javarush.task.task32.task3209.actions.SuperscriptAction());
-        addMenuItem(styleMenu, "Зачеркнутый", new com.javarush.task.task32.task3209.actions.StrikeThroughAction());
+        addMenuItem(styleMenu, "Подстрочный знак", TextEditMenuListener.builder().view(view).build());
+        addMenuItem(styleMenu, "Надстрочный знак", TextEditMenuListener.builder().view(view).build());
+        addMenuItem(styleMenu, "Зачеркнутый", TextEditMenuListener.builder().view(view).build());
 
-        styleMenu.addMenuListener(new com.javarush.task.task32.task3209.listeners.TextEditMenuListener(view));
+        styleMenu.addMenuListener(TextEditMenuListener.builder().view(view).build());
     }
 
 
@@ -130,13 +138,13 @@ public class MenuHelper {
         JMenu editMenu = new JMenu("Редактировать");
         menuBar.add(editMenu);
 
-        JMenuItem undoItem = addMenuItem(editMenu, "Отменить", new com.javarush.task.task32.task3209.actions.UndoAction(view));
-        JMenuItem redoItem = addMenuItem(editMenu, "Вернуть", new RedoAction(view));
+        JMenuItem undoItem = addMenuItem(editMenu, "Отменить", UndoAction.builder().view(view).build());
+        JMenuItem redoItem = addMenuItem(editMenu, "Вернуть", RedoAction.builder().view(view).build());
         addMenuItem(editMenu, "Вырезать", new DefaultEditorKit.CutAction());
         addMenuItem(editMenu, "Копировать", new DefaultEditorKit.CopyAction());
         addMenuItem(editMenu, "Вставить", new DefaultEditorKit.PasteAction());
 
-        editMenu.addMenuListener(new com.javarush.task.task32.task3209.listeners.UndoMenuListener(view, undoItem, redoItem));
+        editMenu.addMenuListener(UndoMenuListener.builder().view(view).undoItem(undoItem).redoItem(redoItem).build());
     }
 
 

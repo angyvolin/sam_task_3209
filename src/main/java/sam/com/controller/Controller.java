@@ -4,8 +4,8 @@ import src.main.java.sam.com.model.HTMLFileFilter;
 import src.main.java.sam.com.view.View;
 
 import javax.swing.text.BadLocationException;
-import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.HTMLEditorKit;
+import javax.swing.text.html.HTMLDocument;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Builder;
