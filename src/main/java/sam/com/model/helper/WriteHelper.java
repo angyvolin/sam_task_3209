@@ -1,4 +1,4 @@
-package src.main.java.sam.com.model;
+package src.main.java.sam.com.model.helper;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;

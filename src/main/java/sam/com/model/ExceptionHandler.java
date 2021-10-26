@@ -3,7 +3,7 @@ package src.main.java.sam.com.model;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Builder;
-
+import src.main.java.sam.com.model.helper.WriteHelper;
 
 
 @Builder
@@ -12,6 +12,6 @@ import lombok.Builder;
 public class ExceptionHandler {
     public static void log(Exception e){
         System.out.println(e.toString());
-        WriteHelper.write(e.toString());
+        WriteHelper.writeLog(e.toString());
     }
 }
