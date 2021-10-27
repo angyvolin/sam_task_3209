@@ -66,8 +66,7 @@ public class MenuHelper {
 
         String[] fontTypes = {Font.SANS_SERIF, Font.SERIF, Font.MONOSPACED, Font.DIALOG, Font.DIALOG_INPUT};
 
-        fontTypes.forEach(fontType -> addMenuItem(fontTypeMenu,
-                fontType,
+        fontTypes.forEach(fontType -> addMenuItem(fontTypeMenu, fontType,
                 new StyledEditorKit.FontFamilyAction(fontType, fontType)));
 
         JMenu fontSizeMenu = new JMenu("Размер шрифта");
@@ -75,8 +74,7 @@ public class MenuHelper {
 
         String[] fontSizes = {"6", "8", "10", "12", "14", "16", "20", "24", "32", "36", "48", "72"};
 
-        fontSizes.forEach(fontSize -> addMenuItem(fontSizeMenu,
-                fontSize,
+        fontSizes.forEach(fontSize -> addMenuItem(fontSizeMenu, fontSize,
                 new StyledEditorKit.FontSizeAction(fontSize, Integer.parseInt(fontSize))));
 
         fontMenu.addMenuListener(TextEditMenuListener.builder().view(view).build());

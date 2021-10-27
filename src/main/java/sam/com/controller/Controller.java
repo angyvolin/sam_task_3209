@@ -1,6 +1,7 @@
 package src.main.java.sam.com.controller;
 
 import src.main.java.sam.com.model.HTMLFileFilter;
+import src.main.java.sam.com.model.helper.WriteHelper;
 import src.main.java.sam.com.view.View;
 
 import javax.swing.text.BadLocationException;
@@ -75,6 +76,7 @@ public class Controller {
         try {
             htmlEditorKit.read(stringReader, document, 0);
         } catch (BadLocationException | IOException e) {
+            WriteHelper.writeLog(e.toString());
             log(e);
         }
     }
@@ -89,7 +91,10 @@ public class Controller {
 
         try {
             if (document != null) new HTMLEditorKit().write(stringWriter, document, 0, document.getLength());
-        } catch (Exception e) { log(e); }
+        } catch (Exception e) {
+            WriteHelper.writeLog(e.toString());
+            log(e);
+        }
 
         return stringWriter.toString();
     }
@@ -123,6 +128,7 @@ public class Controller {
                 new HTMLEditorKit().write(fileWriter, document, 0, document.getLength());
                 fileWriter.close();
             } catch (IOException | BadLocationException e) {
+                WriteHelper.writeLog(e.toString());
                 log(e);
             }
         }

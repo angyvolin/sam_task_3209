@@ -18,26 +18,21 @@ import java.awt.*;
 
 public class View extends JFrame implements ActionListener {
     private Controller controller;
-
+            // это будет компонент для редактирования html в виде текста,
+            // он будет отображать код html(теги и их содержимое).
+    private JEditorPane plainTextPane = new JEditorPane();
+    private UndoManager undoManager = new UndoManager();
             // это будет панель с двумя вкладками.
     private JTabbedPane tabbedPane = new JTabbedPane();
             // это будет компонент для визуального редактирования html.
     private JTextPane htmlTextPane = new JTextPane();
-            // это будет компонент для редактирования html в виде текста,
-            // он будет отображать код html(теги и их содержимое).
-    private JEditorPane plainTextPane = new JEditorPane();
-
-    private UndoManager undoManager = new UndoManager();
     private UndoListener undoListener = new UndoListener(undoManager);
 
             // 4. В конструкторе класса View, через класс UIManager, должен устанавливаться внешний вид
             //    и поведение (look and feel).
     public View () {
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (Exception e) {
-            ExceptionHandler.log(e);
-        }
+        try { UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e) { ExceptionHandler.log(e); }
     }
             // Они будут отвечать за инициализацию меню и панелей редактора.
             // 1. В методе initMenuBar() должно создаваться новое меню (объект типа JMenuBar).
@@ -110,20 +105,14 @@ public class View extends JFrame implements ActionListener {
 
         // отменяет последнее действие. Реализуй его используя undoManager.
     public void undo() {
-        try {
-            undoManager.undo();
-        } catch (CannotUndoException e) {
-            ExceptionHandler.log(e);
-        }
+        try { undoManager.undo();
+        } catch (CannotUndoException e) { ExceptionHandler.log(e); }
     }
 
         // возвращает ранее отмененное действие. Реализуй его по аналогии с предыдущим пунктом.
     public void redo() {
-        try {
-            undoManager.redo();
-        } catch (CannotRedoException e) {
-            ExceptionHandler.log(e);
-        }
+        try { undoManager.redo();
+        } catch (CannotRedoException e) { ExceptionHandler.log(e); }
     }
 
         // должен сбрасывать все правки в менеджере undoManager.
@@ -136,18 +125,17 @@ public class View extends JFrame implements ActionListener {
         else return false;
     }
 
-    public void exit() { controller.exit(); }
+    public void setController(Controller controller) { this.controller = controller; }
+
+    public UndoListener getUndoListener() { return undoListener; }
 
     public boolean canUndo() { return undoManager.canUndo(); }
 
     public boolean canRedo() { return undoManager.canRedo(); }
 
-    public void actionPerformed(ActionEvent e){ }
-
     public Controller getController() { return controller; }
 
-    public UndoListener getUndoListener() { return undoListener; }
+    public void actionPerformed(ActionEvent e){ }
 
-    public void setController(Controller controller) { this.controller = controller; }
-
+    public void exit() { controller.exit(); }
 }
