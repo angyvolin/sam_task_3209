@@ -14,28 +14,37 @@ import java.io.IOException;
 @AllArgsConstructor
 public class WriteHelper {
     private static boolean flagStart = true;
-    private static String path = "";
+    private static String pathSetting = "";
+    private static String pathLog = "";
 
     public static void setPath(String path) {
-        WriteHelper.path = path;
+        WriteHelper.pathLog = path;
     }
 
 
     public static void writeLog(String in) {
-        if (flagStart && new File(path).isFile()) {
-            new File(path);
+        if (flagStart && new File(pathLog).isFile()) {
+            new File(pathLog);
             flagStart = false;
         }
         write(in);
     }
 
     private static void write(String in) {
-        try (FileWriter writer = new FileWriter(path, false)) {
+        try (FileWriter writer = new FileWriter(pathSetting, false)) {
             writer.write(in);
             writer.append('\n');
             writer.flush();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public static boolean isThereFile() {
+        if (new File(pathSetting).isFile()) {
+            new File(pathSetting);
+            return true;
+        }
+        return false;
     }
 }
