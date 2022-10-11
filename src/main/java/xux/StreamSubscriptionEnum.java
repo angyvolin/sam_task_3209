@@ -1,4 +1,4 @@
-package com.samuilolegovich.model.sockets.enums;
+package src.main.java.xux.sockets.enums;
 
 import java.util.HashMap;
 import java.util.Map;
