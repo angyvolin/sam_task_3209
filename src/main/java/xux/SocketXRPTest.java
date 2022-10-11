@@ -1,9 +1,5 @@
-package com.samuilolegovich.model.sockets;
+package src.main.java.xux..sockets;
 
-import com.samuilolegovich.model.sockets.enums.StreamSubscriptionEnum;
-import com.samuilolegovich.model.sockets.exceptions.InvalidStateException;
-import com.samuilolegovich.model.sockets.interfaces.CommandListener;
-import com.samuilolegovich.subscribers.interfaces.StreamSubscriber;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
 import org.json.JSONObject;
