@@ -1,4 +1,4 @@
-package com.samuilolegovich.model.sockets.runnable;
+package src.main.java.xux..sockets.runnable;
 
 import com.samuilolegovich.model.PaymentManager.PaymentAndSocketManagerXRPL;
 
