@@ -1,4 +1,4 @@
-package com.samuilolegovich.model.sockets.interfaces;
+package src.main.java.xux.sockets.interfaces;
 
 import org.json.JSONObject;
 
