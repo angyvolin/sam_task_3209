@@ -1,12 +1,8 @@
-package com.samuilolegovich.model.wallets;
+package src.main.java.xux.wallets;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.common.primitives.UnsignedInteger;
 import com.google.common.primitives.UnsignedLong;
-import com.samuilolegovich.enums.BooleanEnum;
-import com.samuilolegovich.enums.StringEnum;
-import com.samuilolegovich.model.myClient.MyXrplClient;
-import com.samuilolegovich.model.wallets.interfaces.MyWallets;
 import okhttp3.HttpUrl;
 import org.xrpl.xrpl4j.client.JsonRpcClientErrorException;
 import org.xrpl.xrpl4j.crypto.KeyMetadata;
