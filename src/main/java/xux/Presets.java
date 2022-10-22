@@ -1,7 +1,6 @@
-package com.samuilolegovich.model.PaymentManager.interfaces;
+package .interfaces;
 
-import com.samuilolegovich.enums.BooleanEnum;
-import com.samuilolegovich.enums.StringEnum;
+
 
 public interface Presets {
     void setPresets(BooleanEnum enums, boolean b);
