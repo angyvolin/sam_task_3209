@@ -1,9 +1,5 @@
-package com.samuilolegovich.model.PaymentManager.interfaces;
+package .PaymentManager.interfaces;
 
-import com.samuilolegovich.model.sockets.enums.StreamSubscriptionEnum;
-import com.samuilolegovich.model.sockets.exceptions.InvalidStateException;
-import com.samuilolegovich.model.sockets.interfaces.CommandListener;
-import com.samuilolegovich.subscribers.interfaces.StreamSubscriber;
 
 import java.util.EnumSet;
 import java.util.Map;
