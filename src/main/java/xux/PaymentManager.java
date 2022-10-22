@@ -1,4 +1,4 @@
-package com.samuilolegovich.model.PaymentManager.interfaces;
+package .PaymentManager.interfaces;
 
 import java.math.BigDecimal;
 import java.util.Map;
